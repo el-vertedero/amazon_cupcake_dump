@@ -1,0 +1,18 @@
+# CSM SmartHome CHIP Daemon init.rc configuration
+
+on post-fs-data
+    mkdir /data/securedStorageLocation/SmartHome 0777 smarthome smarthome
+    mkdir /data/securedStorageLocation/SmartHome/chip-tool-server/ 0777 smarthome smarthome
+    mkdir /data/securedStorageLocation/SmartHome/chip-tool/ 0777 smarthome smarthome
+
+on property:sys.boot_completed=1
+    chmod 777 /data/securedStorageLocation/SmartHome/PROT_CHIP/CapabilityInstanceDatabase.db
+    chmod 777 /data/securedStorageLocation/SmartHome/PROT_CHIP/CHIPAdapterDatabase.db
+    chmod 777 /data/securedStorageLocation/SmartHome/PROT_CHIP/CHIPAdapterDatabase.db-journal
+    start shchipd
+
+service shchipd /system/bin/SmartHomeChipd
+    class main
+    user smarthome
+    group dbus inet amz_group wifi aipc ace_kvstore ace_group system
+    disabled

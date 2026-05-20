@@ -1,0 +1,11 @@
+#
+# Copyright (c) 2018  Amazon.com, Inc. or its affiliates.  All rights reserved.
+#
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+
+service ps_button_detect /system/bin/button_detect.sh
+    user root
+    group root system shell bluetooth cache
+    oneshot
+    disabled

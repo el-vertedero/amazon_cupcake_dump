@@ -1,0 +1,59 @@
+{
+  "object_type_name": "nemort_scorer_config",
+  "object_type_version": 1,
+  "file_format": "ONNX",
+  "model_filepath": "int16_streaming.onnx",
+  "model_component_mapping": {
+    "object_type_name": "DNNModelComponentMapping",
+    "object_type_version": 2,
+    "input_map": [
+      {
+        "component_name": "input",
+        "channel_type": "beamformed"
+      }
+    ],
+    "output_map": [
+      {
+        "component_name": "alexa/start_end",
+        "output_type": "time-alignment-scores"
+      },
+      {
+        "component_name": "alexa/posteriors",
+        "output_type": "decoding-scores"
+      }
+    ]
+  },
+  "lstm_components": [
+    {
+      "input_component": "input_h_ww",
+      "output_component": "lstm_ww_1_1"
+    },
+    {
+      "input_component": "input_c_ww",
+      "output_component": "lstm_ww_1"
+    },
+    {
+      "input_component": "input_h_se",
+      "output_component": "lstm_se_1_1"
+    },
+    {
+      "input_component": "input_c_se",
+      "output_component": "lstm_se_1"
+    }
+  ],
+  "recurrent_components_input": [
+        "streaming_conv_buffer_input_7",
+        "streaming_conv_buffer_input_14",
+        "streaming_conv_buffer_input_21",
+        "streaming_conv_buffer_input_27",
+        "streaming_conv_buffer_input_33"
+    ],
+  "recurrent_components_output": [
+        "streaming_conv_buffer_output_7",
+        "streaming_conv_buffer_output_14",
+        "streaming_conv_buffer_output_21",
+        "streaming_conv_buffer_output_27",
+        "streaming_conv_buffer_output_33"
+    ],
+  "recurrent_state_initialization": false
+}

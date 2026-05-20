@@ -1,0 +1,4 @@
+<permissions>
+    <library name="com.amazon.signalclient"
+            file="/system/framework/signalclient.jar"/>
+</permissions>

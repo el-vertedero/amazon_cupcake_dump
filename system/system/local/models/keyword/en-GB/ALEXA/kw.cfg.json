@@ -1,0 +1,125 @@
+{
+  "object_type_name": "keyword-spotter-orchestra-config",
+  "object_type_version": 2,
+  "acoustic-model": {
+    "non-speech-pdf": 0,
+    "speech-pdf": 0
+  },
+  "keyword-orchestra": {
+    "buffer-size": 200,
+    "keyword-spotters": [
+      {
+        "name": "ALEXA",
+        "classifier": {
+          "type": "moving-average-max-pool",
+          "trim-tail": 8,
+          "window-size": 2
+        },
+        "spotter": {
+          "classification-thresholds": {
+            "accept-threshold": 0.899,
+            "notify-threshold": 0.377,
+            "overrides": [
+              {
+                "accept-threshold": 0.866,
+                "clientProperties": [
+                  {
+                    "equals": 1,
+                    "name": "AlarmState"
+                  }
+                ]
+              },
+              {
+                "accept-threshold": 0.866,
+                "clientProperties": [
+                  {
+                    "equals": 1,
+                    "name": "AudioPlayerState"
+                  }
+                ]
+              },
+              {
+                "accept-threshold": 0.866,
+                "clientProperties": [
+                  {
+                    "equals": 1,
+                    "name": "audio_playback"
+                  }
+                ]
+              }
+            ]
+          },
+          "word-component-array": [
+            {
+              "scorer-index": 1,
+              "scorer-output-component": {
+                "name": "alexa/posteriors",
+                "posterior-type": "decoding-scores"
+              },
+              "keyword-start-scorer-index": 0,
+              "keyword-end-scorer-index": 1,
+              "keyword-start-end-component": {
+                "name": "alexa/start_end",
+                "posterior-type": "time-alignment-scores"
+              }
+            }
+          ],
+          "keyword-feature-window-length": 100,
+          "lock-period": 100
+        }
+      },
+      {
+        "classifier": {
+          "type": "moving-average-max-pool",
+          "trim-tail": 8,
+          "window-size": 2
+        },
+        "name": "STOP",
+        "spotter": {
+          "classification-thresholds": {
+            "accept-threshold": 0.93
+          },
+          "word-component-array": [
+            {
+              "scorer-index": 2,
+              "scorer-output-component": {
+                "name": "alexa/posteriors",
+                "posterior-type": "decoding-scores"
+              },
+              "keyword-start-scorer-index": 0,
+              "keyword-end-scorer-index": 1,
+              "keyword-start-end-component": {
+                "name": "alexa/start_end",
+                "posterior-type": "time-alignment-scores"
+              }
+            }
+          ],
+          "keyword-feature-window-length": 100,
+          "lock-period": 100,
+          "is-local-command": false
+        }
+      }
+    ]
+  },
+  "keyword-orchestra-monitor": {
+    "statistics": {
+      "classification": {
+        "histogram": {
+          "max": 1,
+          "min": 0,
+          "size": 50
+        }
+      },
+      "segmentation": {
+        "histogram": {
+          "max": 1,
+          "min": 0,
+          "size": 1
+        }
+      }
+    }
+  },
+  "word-symbol-table": {
+    "filename": "words.shrunk.txt"
+  }
+}

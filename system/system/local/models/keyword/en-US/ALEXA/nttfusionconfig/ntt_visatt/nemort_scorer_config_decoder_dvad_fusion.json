@@ -1,0 +1,34 @@
+{
+  "object_type_name": "nemort_scorer_config",
+  "object_type_version": 1,
+  "file_format": "ONNX",
+  "model_filepath": "LogReg_Clean_Throughout_UED_DVAD_CV_PB_sequence.onnx",
+  "inputs": [
+    {
+      "input_name": "dvad",
+      "input_source": "tensor_artifact",
+      "tensor_name": "dvad"
+    },
+    {
+      "input_name": "UED",
+      "input_source": "tensor_artifact",
+      "tensor_name": "UED"
+    },
+    {
+      "input_name": "PLAYBACK_ACTIVE",
+      "input_source": "tensor_artifact",
+      "tensor_name": "PLAYBACK_ACTIVE"
+    },
+    {
+      "input_name": "cv",
+      "input_source": "tensor_artifact",
+      "tensor_name": "cv"
+    }
+  ],
+  "outputs": [
+    {
+      "component_name": "output",
+      "output_type": "decoding-scores"
+    }
+  ]
+}

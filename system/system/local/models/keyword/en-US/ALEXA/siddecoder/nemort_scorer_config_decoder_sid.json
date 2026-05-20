@@ -1,0 +1,30 @@
+{
+  "object_type_name": "nemort_scorer_config",
+  "object_type_version": 1,
+  "file_format": "ONNX",
+  "model_filepath": "zudis_sid.streaming.fixed.int8.onnx",
+  "inputs": [
+    {
+      "input_name": "embedding",
+      "input_source": "tensor_artifact",
+      "tensor_name": "encoder_output"
+    }
+  ],
+  "outputs": [
+    {
+      "component_name": "sid_embedding",
+      "output_type": "decoding-scores"
+    }
+  ],
+  "recurrent_state_initialization": false,
+  "recurrent_components_input": [
+    "conv_buffer_input/Concat:1",
+    "conv_buffer_input/Concat:4",
+    "conv_buffer_input/Concat:7"
+  ],
+  "recurrent_components_output": [
+    "conv_buffer_output/Slice:1",
+    "conv_buffer_output/Slice:4",
+    "conv_buffer_output/Slice:7"
+  ]
+}

@@ -1,0 +1,17 @@
+# CSM SmartHome Wifi Daemon init.rc configuration
+
+on post-fs-data
+    mkdir /data/securedStorageLocation/com.amazon.device.smarthome.adapters.wifi 0777 smarthome smarthome
+    mkdir /data/securedStorageLocation/SmartHome 0777 smarthome smarthome
+
+on property:persist.wifi.migrate.complete=1 && property:sys.boot_completed=1
+    chmod 777 /data/securedStorageLocation/SmartHome/PROT_WIFI/CapabilityInstanceDatabase.db
+    chmod 777 /data/securedStorageLocation/SmartHome/PROT_WIFI/WifiAdapterDatabase.db
+    chmod 777 /data/securedStorageLocation/SmartHome/PROT_WIFI/WifiAdapterDatabase.db-journal
+    start smarthomewifid
+
+service smarthomewifid /system/bin/SmartHomeWifid
+    class main
+    user smarthome
+    group dbus inet amz_group wifi net_raw
+    disabled

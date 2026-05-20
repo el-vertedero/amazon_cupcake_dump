@@ -1,0 +1,17 @@
+{
+    "config_type": "multi_scorer_config",
+    "config_version": 1,
+    "scorers": [{
+       "name": "WW_encoder",
+       "scorer.model_filetype": "nemort-base",
+       "scorer.model_filepath": "nemort_scorer_config_encoder.json",
+       "scorer.initialize.frame_count": 8,
+       "scorer.feat.dimensions": 64,
+       "scorer.num_dnn_outputs": 100,
+       "scorer.score_upsampling.enable": 1,
+       "scorer.score_upsampling.default_skip_frame_count": 7,
+       "checksum": "b919ec2f2368725150954c64ed5db41f",
+       "config_type": "scorer-config",
+       "config_version": 1
+    }]
+}

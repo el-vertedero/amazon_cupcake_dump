@@ -1,0 +1,30 @@
+{
+  "classifier": {
+    "type": "exponential-decay",
+    "decay-rate": 0.6
+  },
+  "name": "STOP",
+  "scorers": ["ww_stop"],
+  "spotter": {
+    "classification-thresholds": {
+      "accept-threshold": 0.600
+    },
+    "word-component-array": [
+      {
+        "scorer-index": 1,
+        "scorer-output-component": {
+          "name": "mww/posteriors",
+          "posterior-type": "decoding-scores"
+        },
+        "keyword-start-scorer-index": 0,
+        "keyword-end-scorer-index": 1,
+        "keyword-start-end-component": {
+          "name": "mww/start_end",
+          "posterior-type": "time-alignment-scores"
+        }
+      }
+    ],
+    "keyword-feature-window-length": 100,
+    "lock-period": 100
+  }
+}

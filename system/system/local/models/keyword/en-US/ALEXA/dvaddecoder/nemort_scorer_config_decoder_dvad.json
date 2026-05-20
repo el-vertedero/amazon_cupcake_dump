@@ -1,0 +1,40 @@
+{
+  "object_type_name": "nemort_scorer_config",
+  "object_type_version": 1,
+  "file_format": "ONNX",
+  "model_filepath": "primed_dvad_decoder.int8-streaming.onnx",
+  "inputs": [
+    {
+      "input_name": "input_1",
+      "input_source": "tensor_artifact",
+      "tensor_name": "encoder_output"
+    }
+  ],
+  "outputs": [
+    {
+      "component_name": "dvad/posteriors",
+      "output_type": "decoding-scores"
+    },
+    {
+      "component_name": "dvad/sos",
+      "output_type": "time-alignment-scores"
+    }
+  ],
+  "recurrent_components_input": [
+    "conv_buffer_input/Concat:4",
+    "conv_buffer_input/Concat:8",
+    "conv_buffer_input/Concat:12",
+    "conv_buffer_input/Concat:26",
+    "conv_buffer_input/Concat:30",
+    "conv_buffer_input/Concat:34"
+  ],
+  "recurrent_components_output": [
+    "conv_buffer_output/Slice:4",
+    "conv_buffer_output/Slice:8",
+    "conv_buffer_output/Slice:12",
+    "conv_buffer_output/Slice:26",
+    "conv_buffer_output/Slice:30",
+    "conv_buffer_output/Slice:34"
+  ],
+  "recurrent_state_initialization": false
+}

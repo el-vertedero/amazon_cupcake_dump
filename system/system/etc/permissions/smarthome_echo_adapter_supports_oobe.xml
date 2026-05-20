@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+     <!-- Declaring this feature will enable support for intermittent oobe
+          in the Echo Adapter. -->
+     <feature name="com.amazon.device.smarthome.features.adapter.echo.oobe" />
+</permissions>

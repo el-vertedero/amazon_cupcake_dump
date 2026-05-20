@@ -1,0 +1,17 @@
+{
+    "config_type": "multi_scorer_config",
+    "config_version": 1,
+    "scorers": [{
+        "name": "dvad",
+        "scorer.model_filetype": "nemort-base",
+        "scorer.model_filepath": "nemort_scorer_config_decoder_dvad.json",
+        "scorer.initialize.frame_count": 1,
+        "scorer.feat.dimensions": 100,
+        "scorer.num_dnn_outputs": 2,
+        "scorer.score_upsampling.enable": 1,
+        "scorer.score_upsampling.default_skip_frame_count": 0,
+        "checksum": "4503c4651214988f8b60982431fe3ad9",
+        "config_type": "scorer-config",
+        "config_version": 1
+    }]
+}

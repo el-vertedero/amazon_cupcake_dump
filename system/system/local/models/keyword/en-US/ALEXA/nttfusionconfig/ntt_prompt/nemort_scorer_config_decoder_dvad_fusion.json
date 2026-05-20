@@ -1,0 +1,24 @@
+{
+  "object_type_name": "nemort_scorer_config",
+  "object_type_version": 1,
+  "file_format": "ONNX",
+  "model_filepath": "logistic_ema.onnx",
+  "inputs": [
+    {
+      "input_name": "DVAD",
+      "input_source": "tensor_artifact",
+      "tensor_name": "dvad"
+    },
+    {
+      "input_name": "UED",
+      "input_source": "tensor_artifact",
+      "tensor_name": "UED"
+    }
+  ],
+  "outputs": [
+    {
+      "component_name": "output",
+      "output_type": "decoding-scores"
+    }
+  ]
+}

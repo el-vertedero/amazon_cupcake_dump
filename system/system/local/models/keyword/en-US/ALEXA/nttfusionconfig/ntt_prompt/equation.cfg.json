@@ -1,0 +1,43 @@
+{
+    "config_type": "ntt_fusion_equation",
+    "config_version": 1,
+    "enable_verbose_logging": false,
+    "score_span_tracker": {
+        "start_lockout_msec": 0,
+        "max_history_msec": 1600
+    },
+    "equation": [ "FUSION_MODEL", "AND", "NO_LOCKOUT" ],
+    "algorithms": [
+        {
+            "name": "FUSION_MODEL",
+            "algo_type": "fusion_model",
+            "result_type": "binary",
+            "config_file_path": "ntt.fusion_model.cfg.json",
+            "metadata_key": "ntt_fusion_model",
+            "collect_reject_metric": true
+        },
+        {
+            "name": "SCD",
+            "algo_type": "sid",
+            "result_type": "binary",
+            "config_file_path": "scd.cfg.json",
+            "metadata_key": "ntt_sid_scd",
+            "collect_reject_metric": true
+        },
+        {
+            "name": "NO_LOCKOUT",
+            "algo_type": "lockout",
+            "result_type": "binary",
+            "config_file_path": "lockout.cfg.json"
+        },
+        {
+            "name": "DVAD_SOS",
+            "algo_type": "dvad",
+            "result_type": "binary",
+            "config_file_path": "dvad_sos.cfg.json",
+            "collect_reject_metric": true
+        }
+    ],
+    "span_provider": "DVAD_SOS",
+    "accept_lockout_msec": 1200
+}

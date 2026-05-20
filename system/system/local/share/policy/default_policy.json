@@ -1,0 +1,14 @@
+{
+    "deviceHasSpeaker": true,
+    "deviceHasMic": true,
+    "deviceHasVolumeControl": true,
+    "deviceHasUberButtonOnly": false,
+    "deviceHasLineInOnly": false,
+    "deviceSupportsLineInLineOutSwitch": false,
+    "isBtnToggleWifiBtEnabled": false,
+    "deviceIsAmplifier" : false,
+    "requiresDataMigration" : false,
+    "deviceSupportsActivityDetection": false,
+    "audioPatchLineIn": false,
+    "deviceSupportsAdaptiveVolume": false
+}

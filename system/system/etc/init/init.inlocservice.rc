@@ -1,0 +1,12 @@
+on post-fs-data
+    mkdir /data/misc/inloc 776 inloc inloc
+    chmod 776 /data/misc/inloc/inloc_fdb.json
+    chmod 776 /data/misc/inloc/inloc_fdb.json.tmp
+    start inlocservice
+
+service inlocservice /system/bin/inlocservice
+    class main
+    user  inloc
+    group inloc inet
+    seclabel u:r:inlocservice:s0
+

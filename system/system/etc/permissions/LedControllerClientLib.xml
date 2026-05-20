@@ -1,0 +1,4 @@
+<permissions>
+    <library name="com.amazon.ledcontrollerclientlib"
+        file="/system/framework/ledcontrollerclientlib.jar"/>
+</permissions>

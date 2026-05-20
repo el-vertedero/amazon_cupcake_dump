@@ -1,0 +1,9 @@
+{
+  "config_type": "afe_algo_config",
+  "config_version": 1,
+  "signal_type": "UED",
+  "comparison_type": "ABOVE",
+  "threshold": 0.4,
+  "enable_verbose_logging": false,
+  "verbose_log_interval_msec": 100
+}

@@ -1,0 +1,19 @@
+# TODO: https://issues.labcollab.net/browse/DEE-82954
+# This should be done direclty from EthernetManager but
+# currently the API is not exposed.
+
+on property:device.ethernet.enabled=0
+    start disable_ethernet
+
+on property:device.ethernet.enabled=1
+    start enable_ethernet
+
+service disable_ethernet /system/bin/ifconfig eth0 down
+    user root
+    oneshot
+    disabled
+
+service enable_ethernet /system/bin/ifconfig eth0 up
+    user root
+    oneshot
+    disabled

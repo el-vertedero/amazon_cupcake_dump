@@ -1,0 +1,134 @@
+{
+    "config_type": "ntt_fusion_processor",
+    "config_version": 3,
+    "prl_ntt_metadata_version_enabled": false,
+    "reset_algo_state_on_session_start": true,
+    "enable_verbose_logging": false,
+    "shadow_accept_tolerance_msec": 2000,
+    "dvad_model_config": {
+      "dvad_scorer_names": ["dvad"],
+      "dvad_scorer_component": {
+        "scorer_index" : 1,
+        "component_name": "dvad/posteriors",
+        "posterior_type": "decoding-scores"
+      },
+      "dvad_start_of_speech_scorer_component": {
+        "scorer_index": 0,
+        "component_name": "dvad/sos",
+        "posterior_type": "time-alignment-scores"
+      },
+      "dvad_window_length_num_frames": 100
+    },
+    "ntt_modes": [
+        {
+            "ntt_mode": "PROMPT",
+            "primary_fusion_algorithm": {
+                "algorithm_name": "equation",
+                "config_file_path": "ntt_prompt/equation.cfg.json"
+            },
+            "shadow_fusion_algorithms": []
+        },
+        {
+            "ntt_mode": "CONVERSATION",
+            "primary_fusion_algorithm": {
+                "algorithm_name": "equation",
+                "config_file_path": "ntt_conv/equation.cfg.json"
+            },
+            "shadow_fusion_algorithms": []
+        },
+        {
+            "ntt_mode": "VISUAL_ATTENTION",
+            "primary_fusion_algorithm": {
+                "algorithm_name": "equation",
+                "config_file_path": "ntt_visatt/equation.cfg.json"
+            },
+            "shadow_fusion_algorithms": []
+        },
+        {
+            "ntt_mode": "LISTENING",
+            "primary_fusion_algorithm": {
+                "algorithm_name": "equation",
+                "config_file_path": "ntt_listen/equation.cfg.json"
+            },
+            "shadow_fusion_algorithms": []
+        }
+    ],
+    "speaker_id_config": {
+      "scorer_activation_modes": [
+        "CONVERSATION",
+        "VISUAL_ATTENTION"
+      ],
+      "scorer_deactivation_modes": []
+    },
+    "afe_metadata_collection": {
+        "collect_max_length_msec": 2000,
+        "collect_before_sos_msec": 500,
+        "collect_signals": [
+            {
+                "signal": "ERLE_RAW",
+                "resample_msec": 0,
+                "round_to_digits": 0
+            },
+            {
+                "signal": "ARA_VSS",
+                "resample_msec": 0,
+                "round_to_digits": 2
+            },
+            {
+                "signal": "DTD",
+                "resample_msec": 0,
+                "round_to_digits": 2
+            },
+            {
+                "signal": "UED",
+                "resample_msec": 0,
+                "round_to_digits": 2
+            },
+            {
+                "signal": "DNN_VAD_PROB",
+                "resample_msec": 0,
+                "round_to_digits": 2
+            },
+            {
+                "signal": "VOLUME",
+                "resample_msec": 0,
+                "round_to_digits": 0
+            },
+            {
+                "signal": "FD_ANGLE",
+                "resample_msec": 0,
+                "round_to_digits": 0
+            },
+            {
+                "signal": "FD_PROB",
+                "resample_msec": 0,
+                "round_to_digits": 2
+            },
+            {
+                "signal": "SSL_ANGLE",
+                "resample_msec": 0,
+                "round_to_digits": 0
+            },
+            {
+                "signal": "SSL_PROB",
+                "resample_msec": 0,
+                "round_to_digits": 2
+            },
+            {
+                "signal": "PLAYBACK_ACTIVE",
+                "resample_msec": 0,
+                "round_to_digits": 0
+            },
+            {
+                "signal": "ULTRA_PROX_DISTANCE",
+                "resample_msec": 0,
+                "round_to_digits": 0
+            },
+            {
+                "signal": "ULTRA_PROX_CONF",
+                "resample_msec": 0,
+                "round_to_digits": 0
+            }
+        ]
+    }
+}

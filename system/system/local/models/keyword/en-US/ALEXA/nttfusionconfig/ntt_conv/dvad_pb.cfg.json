@@ -1,0 +1,7 @@
+{
+    "config_type": "dvad_algo_config",
+    "config_version": 1,
+    "accept_threshold": 0.67,
+    "playback_accept_threshold": 0.67,
+    "enable_verbose_logging": false
+}

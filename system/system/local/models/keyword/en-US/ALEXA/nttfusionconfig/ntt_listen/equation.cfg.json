@@ -1,0 +1,23 @@
+{
+    "config_type": "ntt_fusion_equation",
+    "config_version": 1,
+    "enable_verbose_logging": false,
+    "enable_end_of_speech_callback": true,
+    "score_span_tracker": {
+        "start_lockout_msec": 0,
+        "max_history_msec": 1600
+    },
+    "equation": ["DVAD"],
+    "algorithms": [
+        {
+            "name": "DVAD",
+            "algo_type": "dvad",
+            "result_type": "binary",
+            "config_file_path": "dvad.cfg.json",
+            "metadata_key": "ntt_dvad",
+            "collect_reject_metric": true
+        }
+    ],
+    "span_provider": "DVAD",
+    "accept_lockout_msec": 1200
+}

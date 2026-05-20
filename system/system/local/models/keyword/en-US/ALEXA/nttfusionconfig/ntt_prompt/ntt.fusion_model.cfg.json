@@ -1,0 +1,30 @@
+{
+    "threshold": 0.55,
+    "nemort_config_filepath": "nemort_scorer_config_decoder_dvad_fusion.json",
+    "enable_verbose_logging": false,
+    "cadence_type": "dvad",
+    "skip_cadence_count": 0,
+    "inputs": [{
+        "input_name": "dvad",
+        "input_size": 6,
+        "aggregation_type": "max",
+        "window_length_msec": 480,
+        "default_value": 0
+    },
+    {
+        "input_name": "UED",
+        "input_size": 62,
+        "aggregation_type": "max",
+        "window_length_msec": 496,
+        "default_value": -2.0
+    }],
+    "outputs": [{
+        "scorer_index" : 0,
+        "component_name": "output",
+        "aggregation_type": "max",
+        "window_length_msec": 1600
+    }],
+    "required_inputs": [
+        "dvad"
+    ]
+}

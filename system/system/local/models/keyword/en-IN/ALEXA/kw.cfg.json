@@ -1,0 +1,123 @@
+{
+  "acoustic-model": {
+    "non-speech-pdf": 0,
+    "speech-pdf": 0
+  },
+  "keyword-orchestra": {
+    "buffer-size": 200,
+    "keyword-spotters": [
+      {
+        "classifier": {
+          "type": "exponential-decay",
+          "decay-rate": 0.2
+        },
+        "name": "ALEXA",
+        "spotter": {
+          "classification-thresholds": {
+            "accept-threshold": 0.74,
+            "notify-threshold": 0.4,
+            "overrides": [
+              {
+                "accept-threshold": 0.5,
+                "clientProperties": [
+                  {
+                    "equals": 1,
+                    "name": "AlarmState"
+                  }
+                ]
+              },
+              {
+                "accept-threshold": 0.65,
+                "clientProperties": [
+                  {
+                    "equals": 1,
+                    "name": "AudioPlayerState"
+                  }
+                ]
+              },
+              {
+                "accept-threshold": 0.65,
+                "clientProperties": [
+                  {
+                    "equals": 1,
+                    "name": "audio_playback"
+                  }
+                ]
+              }
+            ]
+          },
+          "keyword-feature-window-length": 100,
+          "lock-period": 100,
+          "word-component-array": [
+            {
+              "keyword-end-scorer-index": 1,
+              "keyword-start-end-component": {
+                "name": "output_se",
+                "posterior-type": "time-alignment-scores"
+              },
+              "keyword-start-scorer-index": 0,
+              "scorer-index": 1,
+              "scorer-output-component": {
+                "name": "output_ww_score",
+                "posterior-type": "decoding-scores"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "classifier": {
+          "decay-rate": 0.6,
+          "type": "exponential-decay"
+        },
+        "name": "STOP",
+        "spotter": {
+          "classification-thresholds": {
+            "accept-threshold": 0.1
+          },
+          "is-local-command": false,
+          "keyword-feature-window-length": 100,
+          "lock-period": 100,
+          "word-component-array": [
+            {
+              "keyword-end-scorer-index": 1,
+              "keyword-start-end-component": {
+                "name": "output_se",
+                "posterior-type": "time-alignment-scores"
+              },
+              "keyword-start-scorer-index": 0,
+              "scorer-index": 2,
+              "scorer-output-component": {
+                "name": "output_ww_score",
+                "posterior-type": "decoding-scores"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "keyword-orchestra-monitor": {
+    "statistics": {
+      "classification": {
+        "histogram": {
+          "max": 1,
+          "min": 0,
+          "size": 1
+        }
+      },
+      "segmentation": {
+        "histogram": {
+          "max": 1,
+          "min": 0,
+          "size": 1
+        }
+      }
+    }
+  },
+  "object_type_name": "keyword-spotter-orchestra-config",
+  "object_type_version": 2,
+  "word-symbol-table": {
+    "filename": "words.shrunk.txt"
+  }
+}

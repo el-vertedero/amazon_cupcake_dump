@@ -1,0 +1,96 @@
+{
+    "config_type": "ntt_fusion_equation",
+    "config_version": 1,
+    "enable_verbose_logging": false,
+    "score_span_tracker": {
+        "start_lockout_msec": 0,
+        "max_history_msec": 1600
+    },
+    "equation": [
+        "(",
+            "(",
+                "FUSION_MODEL", "AND", "UED_BRANCH1",
+                "OR",
+                "DVAD_PB_SCD_TTS", "AND", "SCD", "AND", "UED_BRANCH2", "AND", "NO_TTS",
+            ")",
+            "AND", "WAIT_FOR_SID", "AND", "NO_LOCKOUT", "AND", "CV_ASD",
+        ")"
+    ],
+
+    "algorithms": [
+        {
+            "name": "FUSION_MODEL",
+            "algo_type": "fusion_model",
+            "result_type": "binary",
+            "config_file_path": "ntt.fusion_model.cfg.json",
+            "metadata_key": "ntt_fusion_model",
+            "collect_reject_metric": true
+        },
+        {
+            "name": "CV_ASD",
+            "algo_type": "cv_asd",
+            "result_type": "binary",
+            "config_file_path": "cv_asd.cfg.json",
+            "metadata_key": "cv"
+        },
+        {
+            "name": "NO_TTS",
+            "algo_type": "sid",
+            "result_type": "binary",
+            "config_file_path": "no_tts.cfg.json",
+            "metadata_key": "ntt_sid_tts",
+            "collect_reject_metric": true
+        },
+        {
+            "name": "DVAD_PB_SCD_TTS",
+            "algo_type": "dvad",
+            "result_type": "binary",
+            "config_file_path": "dvad_pb_scd_tts.cfg.json",
+            "collect_reject_metric": true
+        },
+        {
+            "name": "SCD",
+            "algo_type": "sid",
+            "result_type": "binary",
+            "config_file_path": "scd.cfg.json",
+            "metadata_key": "ntt_sid_scd",
+            "collect_reject_metric": true
+        },
+        {
+            "name": "WAIT_FOR_SID",
+            "algo_type": "sid",
+            "result_type": "binary",
+            "config_file_path": "wait_for_sid.cfg.json"
+        },
+        {
+            "name": "NO_LOCKOUT",
+            "algo_type": "lockout",
+            "result_type": "binary",
+            "config_file_path": "lockout.cfg.json"
+        },
+        {
+            "name": "DVAD_SOS",
+            "algo_type": "dvad",
+            "result_type": "binary",
+            "config_file_path": "dvad_sos.cfg.json",
+            "collect_reject_metric": true
+        },
+        {
+            "name": "UED_BRANCH1",
+            "algo_type": "afe",
+            "result_type": "binary",
+            "config_file_path": "afe_ued_branch1.cfg.json",
+            "collect_reject_metric": true
+        },
+        {
+            "name": "UED_BRANCH2",
+            "algo_type": "afe",
+            "result_type": "binary",
+            "config_file_path": "afe_ued_branch2.cfg.json",
+            "collect_reject_metric": true
+        }
+
+    ],
+    "span_provider": "DVAD_SOS",
+    "accept_lockout_msec": 1200
+}

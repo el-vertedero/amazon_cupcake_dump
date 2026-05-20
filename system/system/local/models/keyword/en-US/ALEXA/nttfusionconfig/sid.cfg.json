@@ -1,0 +1,20 @@
+{
+  "config_type": "speaker_id_processor",
+  "config_version": 1,
+  "sid_compute_score": "cosine_similarity",
+  "sid_scaling_factor": 1.0,
+  "sid_model_config": {
+    "sid_scorer_names": [
+      "sid"
+    ],
+    "sid_scorer_component": {
+      "component_name": "sid_embedding",
+      "posterior_type": "decoding-scores"
+    }
+  },
+  "sid_profiles": [
+    {
+      "file_path": "tts_profile_stephanie.json"
+    }
+  ]
+}

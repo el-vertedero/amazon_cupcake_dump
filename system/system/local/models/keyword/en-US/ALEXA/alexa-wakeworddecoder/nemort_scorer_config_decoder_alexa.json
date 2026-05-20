@@ -1,0 +1,42 @@
+{
+  "object_type_name": "nemort_scorer_config",
+  "object_type_version": 1,
+  "file_format": "ONNX",
+  "model_filepath": "alexa.streaming.fixed.int8.onnx",
+  "inputs": [
+    {
+      "input_name": "input_3",
+      "input_source": "tensor_artifact",
+      "tensor_name": "encoder_output"
+    }
+  ],
+  "outputs": [
+    {
+      "component_name": "ww_scores",
+      "output_type": "decoding-scores"
+    },
+    {
+      "component_name": "start_end",
+      "output_type": "time-alignment-scores"
+    }
+  ],
+  "lstm_components": [
+    {
+      "input_component": "input_h_ww",
+      "output_component": "output_h_ww"
+    },
+    {
+      "input_component": "input_c_ww",
+      "output_component": "output_c_ww"
+    },
+    {
+      "input_component": "input_h_se",
+      "output_component": "output_h_se"
+    },
+    {
+      "input_component": "input_c_se",
+      "output_component": "output_c_se"
+    }
+  ],
+  "recurrent_state_initialization": false
+}

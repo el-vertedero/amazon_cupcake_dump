@@ -1,0 +1,44 @@
+{
+	"processes": [
+		{
+			"name": "azon.speech.sim",
+			"soft_memory_limit": 85000,
+			"hard_memory_limit": 128000
+		},
+		{
+			"name": "system_server",
+			"soft_memory_limit": 75000,
+			"hard_memory_limit": 128000
+		},
+		{
+			"name": "ediaplayeragent",
+			"soft_memory_limit": 50000,
+			"hard_memory_limit": 128000
+		},
+		{
+			"name": "AlexaHybridExec",
+			"soft_memory_limit": 89000,
+			"hard_memory_limit": 256000
+		},
+		{
+			"name": "com.amazon.whad",
+			"soft_memory_limit": 45000,
+			"hard_memory_limit": 128000
+		},
+		{
+			"name": "abrowserservice",
+			"soft_memory_limit": 40000,
+			"hard_memory_limit": 128000
+		},
+		{
+			"name": "mediadrmserver",
+			"soft_memory_limit": 20000,
+			"hard_memory_limit": 128000
+		},
+		{
+			"name": "om.amazon.tcomm",
+			"soft_memory_limit": 16000,
+			"hard_memory_limit": 128000
+		}
+	]
+}
