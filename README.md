@@ -1,0 +1,14 @@
+# cupcake-user 6.0 NS65741 8146 amz-p,release-keys
+- manufacturer: amazon
+- platform: mt8167
+- codename: cupcake
+- flavor: cupcake-user
+- release: 7.1.2
+- id: NS65741
+- incremental: 0013222531716
+- tags: amz-p,release-keys
+- fingerprint: Amazon/cupcake/cupcake:6.0/NS65741/8146N:user/amz-p,release-keys
+- is_ab: true
+- brand: Amazon
+- branch: cupcake-user-6.0-NS65741-8146-amz-p,release-keys
+- repo: amazon_cupcake_dump
