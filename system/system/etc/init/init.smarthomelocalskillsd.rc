@@ -1,0 +1,17 @@
+# CSM SmartHome LocalSkills Daemon init.rc configuration
+
+on post-fs-data
+    mkdir /data/securedStorageLocation/SmartHome 0777 smarthome smarthome
+
+on property:sys.boot_completed=1
+    mkdir /data/securedStorageLocation/SmartHome 0777 smarthome smarthome
+    chmod 777 /data/securedStorageLocation/SmartHome/PROT_LOCALSKILLS/CapabilityInstanceDatabase.db
+    chmod 777 /data/securedStorageLocation/SmartHome/PROT_LOCALSKILLS/LocalSkillsAdapterDatabase.db
+    start shlocalskillsd
+
+# TODO https://issues.labcollab.net/browse/CDLOCOLAP-142 review if we need a new user for shlocalskillsd
+service shlocalskillsd /system/bin/SmartHomeLocalSkillsd
+    class main
+    user smarthome
+    group dbus inet amz_group
+    disabled

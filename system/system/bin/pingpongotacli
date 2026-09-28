@@ -1,0 +1,3 @@
+base=/system
+export CLASSPATH=$base/framework/pingpongotaclilib.jar
+exec app_process $base/bin com.amazon.commands.pingpongota.PingPongOTA "$@"

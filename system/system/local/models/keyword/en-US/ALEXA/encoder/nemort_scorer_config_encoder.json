@@ -1,0 +1,44 @@
+{
+  "object_type_name": "nemort_scorer_config",
+  "object_type_version": 1,
+  "file_format": "ONNX",
+  "model_filepath": "primed_encoder.int8-streaming.onnx",
+  "inputs": [
+    {
+      "input_name": "input_136",
+      "input_source": "audio",
+      "channel_type": "beamformed"
+    }
+  ],
+  "outputs": [
+    {
+      "component_name": "encoder_embeddings",
+      "output_type": "decoding-scores",
+      "tensor_name": "encoder_output"
+    }
+  ],
+  "recurrent_components_input": [
+    "conv_buffer_input/Concat:2",
+    "conv_buffer_input/Concat:9",
+    "conv_buffer_input/Concat:13",
+    "conv_buffer_input/Concat:17",
+    "conv_buffer_input/Concat:21",
+    "conv_buffer_input/Concat:29",
+    "conv_buffer_input/Concat:33",
+    "conv_buffer_input/Concat:37",
+    "conv_buffer_input/Concat:41"
+  ],
+  "recurrent_components_output": [
+    "conv_buffer_output/Slice:2",
+    "conv_buffer_output/Slice:9",
+    "conv_buffer_output/Slice:13",
+    "conv_buffer_output/Slice:17",
+    "conv_buffer_output/Slice:21",
+    "conv_buffer_output/Slice:29",
+    "conv_buffer_output/Slice:33",
+    "conv_buffer_output/Slice:37",
+    "conv_buffer_output/Slice:41"
+  ],
+  "recurrent_state_initialization": false
+}
+

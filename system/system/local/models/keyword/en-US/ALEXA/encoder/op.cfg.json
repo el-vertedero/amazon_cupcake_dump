@@ -1,0 +1,7 @@
+{
+  "object_type_name": "keyword-spotter-machine-config",
+  "object_type_version": 2,
+  "config_type": "simple",
+  "state_machine": "standard",
+  "awake_timeout_frames": 175
+}

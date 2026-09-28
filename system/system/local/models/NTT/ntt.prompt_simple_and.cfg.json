@@ -1,0 +1,23 @@
+{
+    "config_type": "ntt_fusion_algo_simple_and",
+    "config_version": 1,
+    "accept_lockout_msec": 1200,
+    "initialization_lockout_msec": 160,
+    "score_history_msec": 350,
+    "dvad_start_of_speech_uncertainty_msec": 150,
+    "dvad_accept_threshold": 0.442,
+    "dvad_client_property_overrides": [
+        {
+            "accept_threshold": 1.0,
+            "client_property": "TTSPlayerState",
+            "condition_function": {
+                "name": "equals",
+                "operand": 1
+            },
+            "config_type": "client_prop_override",
+            "disable_ntt_detections": true
+        }
+    ],
+    "cv_enabled": false,
+    "enable_verbose_logging": false
+}

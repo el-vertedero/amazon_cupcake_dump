@@ -1,0 +1,37 @@
+{
+  "object_type_name": "nemort_scorer_config",
+  "object_type_version": 1,
+  "file_format": "ONNX",
+  "model_filepath": "stop_hey_disney.streaming.fixed.int8.onnx",
+  "inputs": [
+    {
+      "input_name": "input_6",
+      "input_source": "tensor_artifact",
+      "tensor_name": "encoder_output"
+    }
+  ],
+  "outputs": [
+    {
+      "component_name": "mww/posteriors",
+      "output_type": "decoding-scores"
+    },
+    {
+      "component_name": "mww/start_end",
+      "output_type": "time-alignment-scores"
+    }
+  ],
+  "recurrent_state_initialization": false,
+  "recurrent_components_input": [
+    "conv_buffer_input/Concat:3",
+    "conv_buffer_input/Concat:5",
+    "conv_buffer_input/Concat:7",
+    "conv_buffer_input/Concat:10"
+  ],
+  "recurrent_components_output": [
+    "conv_buffer_output/Slice:3",
+    "conv_buffer_output/Slice:5",
+    "conv_buffer_output/Slice:7",
+    "conv_buffer_output/Slice:10"
+  ]
+}
+

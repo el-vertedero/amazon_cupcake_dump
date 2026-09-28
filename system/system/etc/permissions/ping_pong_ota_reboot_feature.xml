@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ping_pong_ota_reboot_feature.xml
+
+     Copyright (c) 2017 Amazon.com, Inc. or its affiliates.  All rights reserved.
+
+     PROPRIETARY/CONFIDENTIAL
+
+     Use is subject to license terms.
+-->
+<permissions>
+    <feature name="com.amazon.feature.pingpongotareboot" />
+</permissions>

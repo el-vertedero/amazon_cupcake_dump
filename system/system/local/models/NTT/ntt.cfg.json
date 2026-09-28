@@ -1,0 +1,30 @@
+{
+    "config_type": "ntt_fusion_processor",
+    "config_version": 3,
+    "prl_ntt_metadata_version_enabled": false,
+    "enable_verbose_logging": false,
+    "shadow_accept_tolerance_msec": 2000,
+    "dvad_model_config": {
+        "dvad_scorer_component": {
+          "scorer_index" : 1,
+          "component_name": "max_pooling_at_end_5",
+          "posterior_type": "decoding-scores"
+        },
+        "dvad_start_of_speech_scorer_component": {
+          "scorer_index" : 0,
+          "component_name": "max_pooling_at_end_5_1",
+          "posterior_type": "time-alignment-scores"
+        },
+        "dvad_window_length_num_frames": 115
+    },
+    "ntt_modes": [
+        {
+            "ntt_mode": "PROMPT",
+            "primary_fusion_algorithm": {
+                "algorithm_name": "simple_and",
+                "config_file_path": "ntt.prompt_simple_and.cfg.json"
+            },
+            "shadow_fusion_algorithms": []
+        }
+    ]
+}

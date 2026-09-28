@@ -1,0 +1,13 @@
+#!/system/bin/sh
+#
+# Script to start "smarthome_utility" on the device, which has a very rudimentary
+# shell.
+#
+# FOS8 installs to system_ext, FOS7 to system
+if [ -f /system/system_ext/framework/smarthome_utility.jar ]; then
+    base=/system/system_ext
+else
+    base=/system
+fi
+export CLASSPATH=$base/framework/smarthome_utility.jar
+exec app_process $base/bin com.amazon.device.smarthome.test.utility.SmartHomeUtility "$@"

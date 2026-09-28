@@ -1,0 +1,17 @@
+{
+    "sid_tracker": {
+        "profiles_type": "tts",
+        "profile_expiry_msec": 10,
+        "accept_threshold": 0.49,
+        "playback_accept_threshold": 0.49,
+        "score_tracker": {
+            "start_lockout_msec": 300,
+            "max_eval_duration_msec": 700,
+            "aggregation_type": "last",
+            "min_aggregation_count": 1,
+            "log_assessed_events": true
+        }
+    },
+    "reject_on_match": true,
+    "enable_verbose_logging": false
+}

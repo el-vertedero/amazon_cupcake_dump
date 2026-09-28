@@ -1,0 +1,99 @@
+#
+# Copyright (c) 2018 - 2019 Amazon.com, Inc. or its affiliates.  All rights reserved.
+#
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+
+# Headless CSM OOBE related changes Begin
+on post-fs-data
+    start csm_oobe_setup
+    start models_fix
+    # Same permissions as /data/local
+    mkdir /data/csm_oobe 0775 root system
+
+on property:sys.boot_completed=1
+    start csm_dnsmasq
+    start def_firewall
+
+on property:lab126.populate.iptables=1
+    start en_p2p_firewall
+
+on property:lab126.populate.iptables=0
+     start dis_p2p_firewall
+
+on property:lab126.p2p.setup.nat=1
+     start en_p2p_nat
+
+on property:lab126.p2p.setup.nat=0
+     start dis_p2p_nat
+
+on property:lab126.oobe.start.tcptunnel=1
+     start en_port_frwd
+
+on property:lab126.oobe.start.tcptunnel=0
+     start dis_port_frwd
+
+service en_port_frwd /system/bin/firewall.sh start port_forwarding
+    user root
+    group system shell bluetooth
+    disabled
+    oneshot
+
+service dis_port_frwd /system/bin/firewall.sh stop port_forwarding
+    user root
+    group system shell bluetooth
+    disabled
+    oneshot
+
+service def_firewall /system/bin/firewall.sh start default
+     user root
+     group system shell bluetooth
+     disabled
+     oneshot
+
+service en_p2p_firewall /system/bin/firewall.sh start p2p
+     user root
+     group system shell bluetooth
+     disabled
+     oneshot
+
+service dis_p2p_firewall /system/bin/firewall.sh stop p2p
+     user root
+     group system shell bluetooth
+     disabled
+     oneshot
+
+service en_p2p_nat /system/bin/firewall.sh start nat
+     user root
+     group system shell bluetooth
+     disabled
+     oneshot
+
+service dis_p2p_nat /system/bin/firewall.sh stop nat
+     user root
+     group system shell bluetooth
+     disabled
+     oneshot
+
+service csm_oobe_setup /system/bin/csm_oobe_setup.sh
+     user root
+     group system shell bluetooth
+     disabled
+     oneshot
+
+service csm_dnsmasq /system/bin/csm_dnsmasq.sh
+     user root
+     group system shell bluetooth
+     disabled
+     oneshot
+
+service models_fix /system/bin/models_fix
+     user root
+     group system shell bluetooth
+     disabled
+     oneshot
+
+# Headless CSM OOBE related changes End
+
+
+

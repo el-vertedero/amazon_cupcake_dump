@@ -1,0 +1,148 @@
+# MTK project .rc configure
+
+import init.mt8167.usb.rc
+import init.wifi.rc
+import init.oobe.rc
+
+# WHA
+import init.whad_cc.rc
+
+on init
+    symlink /dev/block/platform/soc/11120000.mmc/by-name /dev/block/by-name
+    symlink /dev/block/mmcblk0boot0 /dev/block/by-name/preloader
+    # Load persistent dm-verity state
+    verity_load_state
+
+on boot
+   export DOWNLOAD_CACHE /cache
+   chown system system /sys/devices/platform/gpio-privacy/state
+   chown system system /sys/devices/platform/gpio-privacy/enable
+
+on post-fs-data
+   insmod /system/lib/modules/btmtksdio.ko
+   # Update dm-verity state and set partition.*.verified properties
+   verity_update_state
+   mkdir /dev/aipc 2770 system aipc
+
+#Camera
+    chmod 0660 /dev/MAINAF
+    chown system camera /dev/MAINAF
+
+    chmod 0660 /dev/MAINAF2
+    chown system camera /dev/MAINAF2
+
+    chmod 0660 /dev/SUBAF
+    chown system camera /dev/SUBAF
+
+    chmod 0660 /dev/GAF001AF
+    chown system camera /dev/GAF001AF
+
+    chmod 0660 /dev/DW9714AF
+    chown system camera /dev/DW9714AF
+
+    chmod 0660 /dev/AD5820AF
+    chown system camera /dev/AD5820AF
+
+    chmod 0660 /dev/BU64745GWZAF
+    chown system camera /dev/BU64745GWZAF
+
+    chmod 0660 /dev/FM50AF
+    chown system camera /dev/FM50AF
+
+#SMB
+    chown system system /proc/smb/ScreenComm
+    chmod 0660 /proc/smb/ScreenComm
+
+#Define device for ATCID
+    chmod 660 /dev/ttyGS0
+    chown system /dev/ttyGS0
+    chmod 660 /dev/ttyGS1
+    chown system /dev/ttyGS1
+
+on init
+    # Refer to http://source.android.com/devices/tech/storage/index.html
+    # It said, "Starting in Android 4.4, multiple external storage devices are surfaced to developers through
+    #           Context.getExternalFilesDirs(), Context.getExternalCacheDirs(), and Context.getObbDirs().
+    #           External storage devices surfaced through these APIs must be a semi-permanent part of the device (such as an SD card slot in a battery compartment).
+    #           Developers expect data stored in these locations to be available over long periods of time."
+    # Therefore, if the target doesn't support sd hot-plugging (Ex: the SD card slot in a battery compartment), we need to export SECONDARY_STORAGE in 'boot' section
+    #
+    # export SECONDARY_STORAGE /storage/sdcard1
+
+#BT IDME
+on early-boot
+    start btmac
+
+service atci_service /vendor/bin/atci_service
+	socket atci-service stream 660 radio system
+	socket atci-serv-fw stream 660 radio system
+	user root
+        disabled
+	group radio system
+service atcid-daemon-u /vendor/bin/atcid
+	user system
+	group radio system media
+	disabled
+	oneshot
+
+service atcid-daemon-e /vendor/bin/atcid
+	user root
+	group radio system
+	disabled
+	oneshot
+
+on early_property:ro.build.type=eng
+start atci_service
+start atcid-daemon-e
+service audio-daemon /vendor/bin/audiocmdservice_atci
+    class main
+    socket atci-audio stream 660 media system
+    user media
+    group nvram media system sdcard_rw
+    disabled
+    oneshot
+
+# BT MAC
+service btmac /system/bin/btmac.sh
+    user root
+    group radio system
+    disabled
+    oneshot
+
+# OTA
+on property:rota.status=install_applying
+    write /sys/block/mmcblk0boot0/force_ro 0
+
+on property:rota.status=install_success
+    write /sys/block/mmcblk0boot0/force_ro 1
+
+on property:rota.status=install_error
+    write /sys/block/mmcblk0boot0/force_ro 1
+
+on property:rota.status=install_corrupt
+    write /sys/block/mmcblk0boot0/force_ro 1
+
+on property:rota.status=install_verifying
+    write /sys/block/mmcblk0boot0/force_ro 1
+
+# wipe fos_flags
+service wipe_fosflags /init.fosflags.sh wipe
+    class core
+    oneshot
+    disabled
+
+on property:amazon.fos_flags.wipe=1
+    start wipe_fosflags
+
+# The following change requires that the corresponding change be made in the
+# device's system.prop file, and is required because "ip_local_reserved_ports"
+# is too long. Additional ephemeral port reservations should be added to the
+# ip_loc_res_ports var in the system.prop
+on property:sys.sysctl.ip_loc_res_ports=*
+    write /proc/sys/net/ipv4/ip_local_reserved_ports ${sys.sysctl.ip_loc_res_ports}
+
+# perfmonitord
+import init.perfmonitord.rc
+
+# perfrecoveryd
+import init.perfrecoveryd.rc

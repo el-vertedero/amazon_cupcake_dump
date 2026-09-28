@@ -1,0 +1,23 @@
+on post-fs-data
+    mkdir /data/misc/inloc 776 inloc inloc
+    chown inloc inloc /data/misc/inloc
+    chmod 776 /data/misc/inloc/inloc_fdb.json
+    chmod 776 /data/misc/inloc/inloc_fdb.json.tmp
+    chmod 776 /data/misc/inloc/inloc_cdb.json
+    chmod 776 /data/misc/inloc/inloc_cdb.json.tmp
+    chmod 776 /data/misc/inloc/inloc_pdb.json
+    chmod 776 /data/misc/inloc/inloc_pdb.json.tmp
+    chmod 776 /data/misc/inloc/inloc_report_storage.json
+    chmod 776 /data/misc/inloc/inloc_alexa_presence_db.json
+    chmod 776 /data/misc/inloc/inloc_alexa_presence_db.json.tmp
+
+on property:sys.boot_completed=1
+    start inlocservice
+
+service inlocservice /system/bin/inlocservice
+    class main
+    user  inloc
+    group inloc inet
+    seclabel u:r:inlocservice:s0
+    disabled
+

@@ -1,0 +1,14 @@
+{
+    "config_type": "cv_asd_algo_config",
+    "accept_threshold": 0.35,
+    "max_cv_metadata_record_msec": 8000,
+    "enable_verbose_logging": false,
+    "span_width_checker_config": {
+        "cadence_msec": 100,
+        "min_span_msec": 470,
+        "span_score_threshold": 0.35,
+        "peak_score_threshold": 0.75,
+        "span_max_extension_msec": 230,
+        "max_extension_ratio": 0.6
+    }
+}  

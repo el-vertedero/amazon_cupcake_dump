@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+<library name="com.fireos.sdk.realtime_registry" file="/system/priv-app/RealtimeRegistryDeviceSDK/RealtimeRegistryDeviceSDK.apk"/>
+<feature name="com.fireos.sdk.realtime_registry" version="1"/>
+</permissions>

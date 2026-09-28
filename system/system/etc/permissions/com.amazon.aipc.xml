@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ com.amazon.aipc.xml
+  ~
+  ~ Copyright (c) 2020-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+  ~
+  ~ PROPRIETARY/CONFIDENTIAL
+  ~
+  ~ Use is subject to license terms.
+  -->
+
+<permissions>
+    <permission name="com.amazon.permission.USE_AIPC" >
+        <group gid="aipc" />
+    </permission>
+</permissions>

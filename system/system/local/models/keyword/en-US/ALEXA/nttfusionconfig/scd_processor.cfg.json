@@ -1,0 +1,36 @@
+{
+   "config_type": "scd_processor",
+   "config_version": 1,
+   "sid_score_calculator": {
+      "sid_compute_score": "cosine_similarity",
+      "sid_scaling_factor": 1.0
+   },
+   "sid_model_config": {
+      "sid_scorer_names": [
+         "sid"
+      ],
+      "sid_scorer_component": {
+         "component_name": "sid_embedding",
+         "posterior_type": "decoding-scores"
+      }
+   },
+   "frame_embedding_history_size": 100,
+   "profiles_config": [
+      {
+         "speaker_detection_type": "WW",
+         "history_max_count": 3,
+         "max_age_msec": 120000,
+         "profile_generation_sos_offset_msec": 700,
+         "profile_generation_lower_bound_frame_offset": 4,
+         "config_type": "profile_config"
+      },
+      {
+         "speaker_detection_type": "NTT",
+         "history_max_count": 0,
+         "max_age_msec": 120000,
+         "profile_generation_sos_offset_msec": 700,
+         "profile_generation_lower_bound_frame_offset": 4,
+         "config_type": "profile_config"
+      }
+   ]
+}

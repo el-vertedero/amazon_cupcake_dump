@@ -1,0 +1,15 @@
+#
+# Copyright (c) 2018  Amazon.com, Inc. or its affiliates.  All rights reserved.
+#
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+
+# Power save mode
+on property:headless.enter_power_save=1
+    start echo_power_save
+
+service echo_power_save /system/bin/echo_power_save.sh
+    user root
+    group system shell bluetooth
+    disabled
+    oneshot

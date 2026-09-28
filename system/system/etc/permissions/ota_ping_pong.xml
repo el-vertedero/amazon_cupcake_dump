@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (c) 2018 Amazon.com, Inc. or its affiliates.  All rights reserved.
+    PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+-->
+<permissions>
+    <!-- see fireos/base/features/FireOSSystemOTA/README.md for details. -->
+    <feature name="fireos.software.ota.ping_pong" />
+    <feature name="fireos.software.ota.ping_pong_diff" />
+    <feature name="fireos.software.ota.ping_pong_streaming" />
+</permissions>

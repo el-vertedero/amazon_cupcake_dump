@@ -1,0 +1,58 @@
+{
+  "config_type": "multi_scorer_config",
+  "config_version": 1,
+  "scorers": [
+    {
+      "name": "dvad",
+      "scorer.model_filetype": "nemort-base",
+      "scorer.model_filepath": "../dvaddecoder/nemort_scorer_config_decoder_dvad.json",
+      "scorer.initialize.frame_count": 1,
+      "scorer.feat.dimensions": 100,
+      "scorer.num_dnn_outputs": 2,
+      "scorer.score_upsampling.enable": 1,
+      "scorer.score_upsampling.default_skip_frame_count": 0,
+      "checksum": "4503c4651214988f8b60982431fe3ad9",
+      "config_type": "scorer-config",
+      "config_version": 1
+    },
+    {
+      "name": "sid",
+      "scorer.model_filetype": "nemort-base",
+      "scorer.model_filepath": "../siddecoder/nemort_scorer_config_decoder_sid.json",
+      "scorer.initialize.frame_count": 1,
+      "scorer.feat.dimensions": 100,
+      "scorer.num_dnn_outputs": 64,
+      "scorer.score_upsampling.enable": 1,
+      "scorer.score_upsampling.default_skip_frame_count": 0,
+      "checksum": "sid-decoder.int8-streaming.onnx",
+      "config_type": "scorer-config",
+      "config_version": 1
+    },
+    {
+      "name": "ww_stop",
+      "scorer.model_filetype": "nemort-base",
+      "scorer.model_filepath": "../multi-wakeword-wakeworddecoder/nemort_scorer_config_decoder_stop.json",
+      "scorer.initialize.frame_count": 1,
+      "scorer.feat.dimensions": 100,
+      "scorer.num_dnn_outputs": 4,
+      "scorer.score_upsampling.enable": 1,
+      "scorer.score_upsampling.default_skip_frame_count": 0,
+      "checksum": "86f2f84f2ca256082f87da8f5cf15e73",
+      "config_type": "scorer-config",
+      "config_version": 1
+    },
+    {
+      "name": "ww_alexa",
+      "scorer.model_filetype": "nemort-base",
+      "scorer.model_filepath": "../alexa-wakeworddecoder/nemort_scorer_config_decoder_alexa.json",
+      "scorer.initialize.frame_count": 1,
+      "scorer.feat.dimensions": 100,
+      "scorer.num_dnn_outputs": 2,
+      "scorer.score_upsampling.enable": 1,
+      "scorer.score_upsampling.default_skip_frame_count": 0,
+      "checksum": "4c3de7ce21b264bff078b06e8f3d5eb3",
+      "config_type": "scorer-config",
+      "config_version": 1
+    }
+  ]
+}

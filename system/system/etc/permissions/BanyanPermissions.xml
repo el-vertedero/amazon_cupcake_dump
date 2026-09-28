@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+    <library name="Banyan-JavaOutreach-1.0"
+            file="/system/framework/Banyan-JavaOutreach-1.0.jar"/>
+    <library name="Banyan-Android-SDK-release"
+            file="/system/framework/Banyan-Android-SDK-release.jar"/>
+    <library name="Banyan-Thrift"
+            file="/system/framework/Banyan-Thrift.jar"/>
+    <library name="Json-org-java"
+            file="/system/framework/Json-org-java"/>
+    <library name="sqlite4java"
+            file="/system/framework/sqlite4java.jar"/>
+    <library name="java_websocket"
+            file="/system/framework/java_websocket.jar"/>
+    <library name="nv-websocket-client-1.28"
+            file="/system/framework/nv-websocket-client-1.28.jar"/>
+</permissions>

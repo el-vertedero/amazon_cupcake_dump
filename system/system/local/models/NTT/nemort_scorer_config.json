@@ -1,0 +1,45 @@
+{
+  "object_type_name": "nemort_scorer_config",
+  "object_type_version": 1,
+  "file_format": "ONNX",
+  "model_filepath": "onnx_model.streaming.int8.onnx",
+  "model_component_mapping": {
+    "object_type_name": "DNNModelComponentMapping",
+    "object_type_version": 2,
+    "input_map": [
+      {
+        "component_name": "input_1",
+        "channel_type": "beamformed"
+      }
+    ],
+    "output_map": [
+      {
+        "component_name": "max_pooling_at_end_5",
+        "output_type": "decoding-scores"
+      },
+      {
+        "component_name": "max_pooling_at_end_5_1",
+        "output_type": "time-alignment-scores"
+      }
+    ]
+  },
+  "recurrent_components_input": [
+    "streaming_buffer_input_2",
+    "streaming_buffer_input_5",
+    "streaming_buffer_input_10",
+    "streaming_buffer_input_15",
+    "streaming_buffer_input_20",
+    "streaming_buffer_input_25",
+    "streaming_buffer_input_30"
+  ],
+  "recurrent_components_output": [
+    "buffer_streaming_buffer_output_2",
+    "streaming_buffer_output_5",
+    "streaming_buffer_output_10",
+    "streaming_buffer_output_15",
+    "streaming_buffer_output_20",
+    "streaming_buffer_output_25",
+    "streaming_buffer_output_30"
+  ],
+  "recurrent_state_initialization": false
+}

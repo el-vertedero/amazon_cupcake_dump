@@ -1,0 +1,4 @@
+# Copyright (c) 2019 Amazon.com, Inc. or its affiliates.  All rights reserved
+
+on post-fs-data
+    chmod -R 777 /data/securedStorageLocation/com.amazon.device.smarthome.adapters.ble

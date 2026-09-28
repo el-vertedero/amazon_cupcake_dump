@@ -1,0 +1,66 @@
+{
+    "tensor_artifacts": [
+          {
+              "name" : "encoder_output",
+              "format": "in-memory",
+              "protocol" : "runtime"
+          },
+          {
+              "name" : "dvad",
+              "format": "in-memory",
+              "protocol" : "runtime"
+          },
+          {
+              "name" : "dvad_sos",
+              "format": "in-memory",
+              "protocol" : "runtime"
+          },
+          {
+              "name" : "scd",
+              "format": "in-memory",
+              "protocol" : "runtime"
+          },
+          {
+              "name" : "tts",
+              "format": "in-memory",
+              "protocol" : "runtime"
+          },
+          {
+              "name" : "UED",
+              "format": "in-memory",
+              "protocol" : "runtime"
+          },
+          {
+              "name" : "ERLE_RAW",
+              "format": "in-memory",
+              "protocol" : "runtime"
+          },
+           {
+              "name" : "ARA_VSS",
+              "format": "in-memory",
+              "protocol" : "runtime"
+          },
+          {
+              "name" : "PLAYBACK_ACTIVE",
+              "format": "in-memory",
+              "protocol" : "runtime"
+          },
+          {
+              "name" : "VOLUME",
+              "format": "in-memory",
+              "protocol" : "runtime"
+          },
+          {
+              "name" : "DTD",
+              "format": "in-memory",
+              "protocol" : "runtime"
+          },
+          {
+              "name" : "cv",
+              "format": "in-memory",
+              "protocol" : "runtime"
+          }
+      ],
+      "object_type_name": "tensor_artifacts_list_config",
+      "object_type_version": 1
+}

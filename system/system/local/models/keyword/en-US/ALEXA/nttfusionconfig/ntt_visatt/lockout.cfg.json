@@ -1,0 +1,9 @@
+{
+    "config_type": "lockout_config",
+    "config_version": 1,
+    "initialization_lockout_msec": 0,
+    "playback_lockout_msec": 1000,
+    "use_first_lockout_in_session": true,
+    "lockout_check_at_end_frame": true,
+    "enable_verbose_logging": false
+}

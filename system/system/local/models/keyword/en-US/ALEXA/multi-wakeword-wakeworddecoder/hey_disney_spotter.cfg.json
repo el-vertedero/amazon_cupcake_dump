@@ -1,0 +1,90 @@
+{
+  "classifier": {
+    "type": "weighted-geometric-average-aggregator",
+    "weights": [
+      1,
+      1
+    ]
+  },
+  "name": "HEY_DISNEY",
+  "scorers": [
+    "ww_stop"
+  ],
+  "spotter": {
+    "classification-thresholds": {
+      "accept-threshold": 0.43,
+      "notify-threshold": 0.2,
+      "overrides": [
+        {
+          "accept-threshold": 0.43,
+          "clientProperties": [
+            {
+              "equals": 1,
+              "name": "AlarmState"
+            }
+          ]
+        },
+        {
+          "accept-threshold": 0.43,
+          "clientProperties": [
+            {
+              "equals": 1,
+              "name": "AudioPlayerState"
+            }
+          ]
+        },
+        {
+          "accept-threshold": 0.43,
+          "clientProperties": [
+            {
+              "equals": 1,
+              "name": "audio_playback"
+            }
+          ]
+        }
+      ]
+    },
+    "word-component-array": [
+      {
+        "scorer-index": 2,
+        "scorer-output-component": {
+          "name": "mww/posteriors",
+          "posterior-type": "decoding-scores"
+        },
+        "word-score-history-size": 100,
+        "keyword-start-scorer-index": 0,
+        "keyword-end-scorer-index": 1,
+        "keyword-start-end-component": {
+          "name": "mww/start_end",
+          "posterior-type": "time-alignment-scores"
+        }
+      },
+      {
+        "scorer-index": 3,
+        "scorer-output-component": {
+          "name": "mww/posteriors",
+          "posterior-type": "decoding-scores"
+        },
+        "word-score-history-size": 1,
+        "keyword-start-scorer-index": 0,
+        "keyword-end-scorer-index": 1,
+        "keyword-start-end-component": {
+          "name": "mww/start_end",
+          "posterior-type": "time-alignment-scores"
+        }
+      }
+    ],
+    "posterior-smoothers": [
+      {
+        "type": "exponential-decay",
+        "decay-rate": 0.0
+      },
+      {
+        "type": "exponential-decay",
+        "decay-rate": 0.3
+      }
+    ],
+    "keyword-feature-window-length": 100,
+    "lock-period": 100
+  }
+}

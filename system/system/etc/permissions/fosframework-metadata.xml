@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+<feature name="com.fireos.sdk.fireos_core" version="7"/>
+<feature name="com.fireos.sdk.accessibility" version="5"/>
+<feature name="com.fireos.sdk.amazon_activity_manager" version="8"/>
+<feature name="com.fireos.sdk.amazon_app_settings" version="4"/>
+<feature name="com.fireos.sdk.amazon_audio_manager" version="23"/>
+<feature name="com.fireos.sdk.amazon_bt_profile_manager" version="3"/>
+<feature name="com.fireos.sdk.amazon_debugging_tools" version="3"/>
+<feature name="com.fireos.sdk.amazon_drop_box_manager" version="7"/>
+<feature name="com.fireos.sdk.amazon_keyguard_manager" version="4"/>
+<feature name="com.fireos.sdk.amazon_metrics" version="3"/>
+<feature name="com.fireos.sdk.amazon_mobile_accessory_manager" version="5"/>
+<feature name="com.fireos.sdk.amazon_package_manager" version="30"/>
+<feature name="com.fireos.sdk.amazon_power_manager" version="13"/>
+<feature name="com.fireos.sdk.amazon_remoteviews" version="1"/>
+<feature name="com.fireos.sdk.amazon_user_manager" version="5"/>
+<feature name="com.fireos.sdk.amazon_wifi_manager" version="14"/>
+<feature name="com.fireos.sdk.amazon_wifi_p2p_manager" version="1"/>
+<feature name="com.fireos.sdk.amazon_blemesh_manager" version="2"/>
+<feature name="com.fireos.sdk.device_model_info" version="6"/>
+<feature name="com.fireos.sdk.downloadmanager" version="8"/>
+<feature name="com.fireos.sdk.fireos_system_ota" version="1"/>
+<feature name="com.fireos.sdk.hardware_auth" version="8"/>
+<feature name="com.fireos.sdk.amazon_i18n_manager" version="5"/>
+<feature name="com.fireos.sdk.i18nutilities" version="5"/>
+<feature name="com.fireos.sdk.amazon_inloc_manager" version="2"/>
+<feature name="com.fireos.sdk.network_manager_lib" version="1"/>
+<feature name="com.fireos.sdk.shared_asset_storage" version="4"/>
+<feature name="com.fireos.sdk.speech_mark" version="1"/>
+<feature name="com.fireos.sdk.thermal_event_manager" version="1"/>
+<feature name="com.fireos.sdk.thermal_manager" version="3"/>
+</permissions>

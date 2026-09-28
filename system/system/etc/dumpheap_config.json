@@ -1,0 +1,15 @@
+{
+	"WatchList_Enable": false,
+	"DeviceList": [
+		{
+			"Device_Type": "cupcake",
+			"Device_WatchEnabled": false,
+			"Dumpheap_WatchList": [
+				{
+					"process_name": "amazon.speech.sim",
+					"pss_threshold_limit": 68157440
+				}
+			]
+		}
+	]
+}

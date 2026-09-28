@@ -1,0 +1,4 @@
+<permissions>
+    <library name="com.amazon.uxcontrollerlibrary"
+        file="/system/framework/uxcontrollerlibrary.jar"/>
+</permissions>
